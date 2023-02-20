@@ -1,11 +1,11 @@
-# Worker node
+## Worker node
 
-### Get join command from master node
+#### Get join command from master node
 ```
 kubeadm token create --print-join-command
 ```
 
-### Join
+#### Join
 ```
 kubeadm join ${IP} --token ${TOKEN}
 ```

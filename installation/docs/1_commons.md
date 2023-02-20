@@ -8,12 +8,6 @@ echo 0 > /proc/sys/vm/swappiness
 sed -e '/swap/ s/^#*/#/' -i /etc/fstab
 ```
 
-#### check swap file list is empty
-
-```
-cat /proc/swaps
-```
-
 ### Install crio v1.23
 ```
 sudo apt update -y && 
@@ -32,12 +26,8 @@ sudo apt update -y &&
 sudo apt install cri-o cri-o-runc -y &&
 
 sudo systemctl enable crio.service &&
-sudo systemctl start crio.service
-```
+sudo systemctl start crio.service &&
 
-#### Make sure that the crio service is activated.
-
-```
 systemctl status crio
 ```
 
