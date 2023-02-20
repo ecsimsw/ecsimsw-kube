@@ -28,6 +28,9 @@ kubectl exec -it dnsutils /bin/bash
 nslookup google.com
 ```
 
+![image](https://user-images.githubusercontent.com/46060746/220055885-5f4473ab-0d1b-4799-92f1-43ecabfedb9c.png)
+
+
 ### Issues
 
 if) [ERROR FileContent--proc-sys-net-bridge-bridge-nf-call-iptables]: /proc/sys/net/bridge/bridge-nf-call-iptables does not exist
@@ -77,7 +80,12 @@ I think the yaml of Calico is the old version.
 
 if) nslookup is failed, check all the pods are in POD_IP_CIDR range. If not, restart pods to get new ip.
 
+![image](https://user-images.githubusercontent.com/46060746/220055767-0be7651f-b8ca-412d-b826-c94dd8d1cdf8.png)
+
 if) Make sure that the IPs of all nodes are not the same. Especially that ips are all same as 10.0.2.15 which is default NAT ip address, you might skip setting up node ip on kubelet.
+
+![image](https://user-images.githubusercontent.com/46060746/220055527-aa6e4bab-fad6-484a-b144-3d79f6731118.png)
+
 ```
 NODE_IP={MACHINE_NODE_IP} &&
 echo "KUBELET_EXTRA_ARGS=\"--node-ip=$NODE_IP\"" >> /etc/default/kubelet
@@ -87,3 +95,5 @@ kubeadm reset
 ## kubeadm init if this node is master.
 ## kubeadm join if this node is worker. 
 ```
+
+![image](https://user-images.githubusercontent.com/46060746/220055643-79cd6d69-af5b-40a0-b906-2a793b9a1866.png)
