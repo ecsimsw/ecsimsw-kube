@@ -2,7 +2,7 @@
 
 ### Set vagrant environment
 
-configurations
+#### configurations
 ```
 0. Virtual machine provider
 1. Operating system
@@ -11,7 +11,7 @@ configurations
 4. Resources (Cpu, Memory)
 ```
 
-Vagrantfile
+#### Vagrantfile
 ```
 Vagrant.configure("2") do |config|
   config.vm.define "master" do |master|
@@ -46,20 +46,19 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-Provisions the vagrant environment
+#### Provisions the vagrant environment
 
 ```
 cd machines
 vagrant up
 ```
 
-
-List machines status
+#### List machines status
 ```
 vagrant status
 ```
 
-Connects to machine via SSH
+#### Connects to machine via SSH
 ```
 vagrant ssh master
 vagrant ssh worker1
