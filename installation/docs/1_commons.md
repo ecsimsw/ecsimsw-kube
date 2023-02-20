@@ -1,6 +1,6 @@
-# Commons 
+## Commons 
 
-## Disable swap
+### Disable swap
 ```
 sudo -i
 swapoff -a
@@ -8,13 +8,13 @@ echo 0 > /proc/sys/vm/swappiness
 sed -e '/swap/ s/^#*/#/' -i /etc/fstab
 ```
 
-check swap file list is empty
+#### check swap file list is empty
 
 ```
 cat /proc/swaps
 ```
 
-## Install crio v1.23
+### Install crio v1.23
 ```
 sudo apt update -y && 
 sudo apt upgrade -y &&
@@ -35,13 +35,13 @@ sudo systemctl enable crio.service &&
 sudo systemctl start crio.service
 ```
 
-Make sure that the crio service is activated.
+#### Make sure that the crio service is activated.
 
 ```
 systemctl status crio
 ```
 
-## Install Kubeadm, Kubelet, Kubectl
+### Install Kubeadm, Kubelet, Kubectl
 ```
 sudo apt-get update -y &&
 sudo apt-get install -y apt-transport-https ca-certificates curl &&
@@ -54,13 +54,13 @@ sudo apt-get install -y kubelet kubeadm kubectl &&
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
 
-## Network config
+### Network config
 ```
 modprobe br_netfilter &&
 echo '1' > /proc/sys/net/ipv4/ip_forward
 ```
 
-## Declare node-ip on kubelet environment values
+### Declare node-ip on kubelet environment values
 
 Declare `NODE_IP` according to your VM settings.    
 Without this task, the node ip registered to the cluster is set to the default NAT ip address(10.0.2.15).
