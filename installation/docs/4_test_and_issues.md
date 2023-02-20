@@ -28,9 +28,6 @@ kubectl exec -it dnsutils /bin/bash
 nslookup google.com
 ```
 
-![image](https://user-images.githubusercontent.com/46060746/220055885-5f4473ab-0d1b-4799-92f1-43ecabfedb9c.png)
-
-
 ### Issues
 
 if) [ERROR FileContent--proc-sys-net-bridge-bridge-nf-call-iptables]: /proc/sys/net/bridge/bridge-nf-call-iptables does not exist
