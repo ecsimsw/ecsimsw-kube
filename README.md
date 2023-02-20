@@ -159,7 +159,7 @@ kubectl get nodes -o wide
 kubeadm token create --print-join-command
 ```
 
-# Install calico v3.25 (Master only)
+## Install calico v3.25 (Master only)
 
 ### Get calico manifest file
 ```
@@ -180,7 +180,7 @@ Enable `CALICO_IPV4POOL_CIDR` and change the value as your `POD_NETWORK_CIDR`
 kubectl apply -f calico.yaml
 ```
 
-# Join cluster (Worker only)
+## Join cluster (Worker only)
 
 ### Get join command from master node
 ```
@@ -213,7 +213,7 @@ spec:
   restartPolicy: Always" | kubectl apply -f -
 ```
 
-# ERROR LIST
+## Error list
 
 if) [ERROR FileContent--proc-sys-net-bridge-bridge-nf-call-iptables]: /proc/sys/net/bridge/bridge-nf-call-iptables does not exist
 ```
