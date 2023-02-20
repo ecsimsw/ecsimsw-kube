@@ -5,9 +5,13 @@
 #### Declare `NODE_IP, POD_NETWORK_CIDR` according to your configuration.
 
 ```
-NODE_IP=192.168.52.11 &&
-POD_NETWORK_CIDR=172.16.0.0/16 &&
+NODE_IP=192.168.52.10
+POD_NETWORK_CIDR=172.16.0.0/16
+```
 
+kubeadm init 
+
+```
 sudo kubeadm init \
 --pod-network-cidr=$POD_NETWORK_CIDR \
 --apiserver-advertise-address=$NODE_IP \
@@ -50,7 +54,7 @@ curl https://docs.projectcalico.org/archive/v$CALICO_VERSION/manifests/calico.ya
 #### Enable `CALICO_IPV4POOL_CIDR` and change the value as your `POD_NETWORK_CIDR`
 ```
 - name: CALICO_IPV4POOL_CIDR
-  value:  "${YOUR_POD_NETWORK_CIDR}"
+  value: "172.16.0.0/16"
 ```
 
 #### Apply
