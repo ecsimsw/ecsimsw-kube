@@ -1,0 +1,66 @@
+# Master node
+
+## Init cluster
+
+### kubeadm init
+
+Declare `NODE_IP, POD_NETWORK_CIDR` according to your configuration.
+
+```
+NODE_IP=192.168.52.11 &&
+POD_NETWORK_CIDR=172.16.0.0/16 &&
+
+sudo kubeadm init \
+--pod-network-cidr=$POD_NETWORK_CIDR \
+--apiserver-advertise-address=$NODE_IP \
+--control-plane-endpoint=$NODE_IP
+```
+
+### Set user env value
+
+```
+# To start using your cluster, you need to run the following as a regular user:
+mkdir -p $HOME/.kube &&
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config &&
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+```
+# Alternatively, if you are the root user, you can run:
+export KUBECONFIG=/etc/kubernetes/admin.conf
+```
+
+Check pod network cidr
+
+```
+kubectl cluster-info dump | grep -m 1 cluster-cidr
+```
+
+Check master node ip
+
+```
+kubectl get nodes -o wide
+```
+
+Get join command
+```
+kubeadm token create --print-join-command
+```
+
+## Install calico v3.25
+
+### Get calico manifest file
+```
+CALICO_VERSION=3.25 &&
+curl https://docs.projectcalico.org/archive/v$CALICO_VERSION/manifests/calico.yaml -O
+```
+
+### Enable `CALICO_IPV4POOL_CIDR` and change the value as your `POD_NETWORK_CIDR`
+```
+- name: CALICO_IPV4POOL_CIDR
+  value:  "${YOUR_POD_NETWORK_CIDR}"
+```
+
+### Apply
+```
+kubectl apply -f calico.yaml
+```
