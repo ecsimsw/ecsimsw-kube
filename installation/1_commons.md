@@ -52,9 +52,9 @@ echo '1' > /proc/sys/net/ipv4/ip_forward
 
 #### Declare node-ip on kubelet environment values
 
-Declare `NODE_IP` according to your VM settings. Without this task, the node ip registered to the cluster is set to the default NAT ip address(10.0.2.15).
-
 ```
 NODE_IP=192.168.52.10 
 echo "KUBELET_EXTRA_ARGS=\"--node-ip=$NODE_IP\"" >> /etc/default/kubelet
 ```
+
+Declare `NODE_IP` according to your VM settings. Without this task, the node ip registered to the cluster is set to the default NAT ip address(10.0.2.15).
