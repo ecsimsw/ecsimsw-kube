@@ -18,12 +18,12 @@ sudo kubeadm init \
 
 #### Set user env value
 
-root user :
+root user
 ```
 export KUBECONFIG=/etc/kubernetes/admin.conf
 ```
 
-regular user : 
+regular user 
 ```
 mkdir -p $HOME/.kube &&
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config &&
@@ -48,7 +48,7 @@ CALICO_VERSION=3.25 &&
 curl https://docs.projectcalico.org/archive/v$CALICO_VERSION/manifests/calico.yaml -O
 ```
 
-#### Enable `CALICO_IPV4POOL_CIDR` and change the value as your `POD_NETWORK_CIDR`
+#### Enable CALICO_IPV4POOL_CIDR and change the value as your pod network cidr
 ```
 - name: CALICO_IPV4POOL_CIDR
   value: "172.16.0.0/16"
