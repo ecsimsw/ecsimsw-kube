@@ -1,7 +1,5 @@
 ## Machines
 
-### Set vagrant environment
-
 #### configurations
 ```
 0. Virtual machine provider
