@@ -1,15 +1,13 @@
 ## Master node
 
-### kubeadm init
-
-#### Declare `NODE_IP, POD_NETWORK_CIDR` according to your configuration.
+#### Declare `NODE_IP`, `POD_NETWORK_CIDR` according to your configuration.
 
 ```
 NODE_IP=192.168.52.10
 POD_NETWORK_CIDR=172.16.0.0/16
 ```
 
-kubeadm init 
+#### kubeadm init 
 
 ```
 sudo kubeadm init \
@@ -20,15 +18,16 @@ sudo kubeadm init \
 
 #### Set user env value
 
+root user :
 ```
-# To start using your cluster, you need to run the following as a regular user:
+export KUBECONFIG=/etc/kubernetes/admin.conf
+```
+
+regular user : 
+```
 mkdir -p $HOME/.kube &&
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config &&
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
-```
-```
-# Alternatively, if you are the root user, you can run:
-export KUBECONFIG=/etc/kubernetes/admin.conf
 ```
 
 #### Check list
@@ -42,8 +41,6 @@ kubectl get nodes -o wide
 # Get join command
 kubeadm token create --print-join-command
 ```
-
-### Install calico v3.25
 
 #### Get calico manifest file
 ```
