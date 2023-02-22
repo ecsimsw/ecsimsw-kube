@@ -5,4 +5,4 @@ metadata:
   namespace: metallb-system
 spec:
   ipAddressPools:
-  - first-pool
+  - external-ip-pool-1

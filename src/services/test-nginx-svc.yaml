@@ -24,6 +24,20 @@ spec:
   selector:
     run: test-nginx
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-svc-lb
+  namespace: test
+  annotations:
+    metallb.universe.tf/address-pool: external-ip-pool-1
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    run: test-nginx
+  type: LoadBalancer
 
 
 # Service는 파드 재실행 시 ip가 재할당되어 요청 ip에 변화가 생기는 상황을 막는다.
