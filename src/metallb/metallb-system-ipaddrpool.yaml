@@ -1,7 +1,7 @@
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
-  name: first-pool
+  name: external-ip-pool-1
   namespace: metallb-system
 spec:
   addresses:
