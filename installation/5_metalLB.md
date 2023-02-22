@@ -7,7 +7,7 @@ If you’re using kube-proxy in IPVS mode, since Kubernetes v1.14.2 you have to 
 kubectl edit configmap -n kube-system kube-proxy           
 ```
 
-and set
+and set ipvs.strictARP as true
 
 ```
 apiVersion: kubeproxy.config.k8s.io/v1alpha1
