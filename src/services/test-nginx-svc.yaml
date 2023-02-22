@@ -39,7 +39,6 @@ spec:
     run: test-nginx
   type: LoadBalancer
 
-
 # Service는 파드 재실행 시 ip가 재할당되어 요청 ip에 변화가 생기는 상황을 막는다.
 # 지정한 label을 갖는 pod를 묶은 Endpoint를 사이에 두고 pod에 접근할 수 있는 ip를 선언한다.
 
