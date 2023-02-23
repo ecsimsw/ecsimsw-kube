@@ -15,4 +15,3 @@ kubeadm join 192.168.52.10:6443 --token 6iilcp.2uh68yajgxq95atw --discovery-toke
 ```
 kubectl get nodes -o wide
 ```
-
