@@ -5,7 +5,16 @@ metadata:
   namespace: metallb-system
 spec:
   addresses:
-    - 192.168.52.20-192.168.52.30
+    - 192.168.52.13-192.168.52.19
+---
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: external-ip-pool-2
+  namespace: metallb-system
+spec:
+  addresses:
+    - 192.168.52.20-192.168.52.29
 
 # Node1 : 192.168.52.10
 # Node2 : 192.168.52.11
