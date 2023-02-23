@@ -30,7 +30,7 @@ metadata:
   name: nginx-svc-lb
   namespace: test
   annotations:
-    metallb.universe.tf/address-pool: external-ip-pool-1
+    metallb.universe.tf/address-pool: external-ip-pool-2
 spec:
   ports:
     - port: 80
