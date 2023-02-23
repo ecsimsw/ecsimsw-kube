@@ -1,11 +1,12 @@
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
-  name: external-ip-pool-1
+  name: node-reserved-ip-pool-1
   namespace: metallb-system
 spec:
   addresses:
-    - 192.168.52.13-192.168.52.19
+    - 192.168.52.10-192.168.52.19
+  autoAssign: false
 ---
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
@@ -15,7 +16,12 @@ metadata:
 spec:
   addresses:
     - 192.168.52.20-192.168.52.29
-
-# Node1 : 192.168.52.10
-# Node2 : 192.168.52.11
-# Node3 : 192.168.52.12
+---
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: external-ip-pool-3
+  namespace: metallb-system
+spec:
+  addresses:
+    - 192.168.52.30-192.168.52.39
