@@ -1,6 +1,4 @@
-## How to test, Issues I met
-
-### Test with dns resolution
+## Test with dns resolution
 [k8s/dns-debugging-resolution](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)
 
 #### Create dns utils pod
@@ -28,7 +26,7 @@ kubectl exec -it dnsutils /bin/bash
 nslookup google.com
 ```
 
-### Issues
+## Issues I met
 
 if) [ERROR FileContent--proc-sys-net-bridge-bridge-nf-call-iptables]: /proc/sys/net/bridge/bridge-nf-call-iptables does not exist
 ```
