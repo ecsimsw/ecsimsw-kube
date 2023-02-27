@@ -2,6 +2,8 @@
 ```
 helm repo add kong https://charts.konghq.com
 helm repo update
+
+# Helm v3+
 helm install kong/kong --generate-name --set ingressController.installCRDs=false -n kong --create-namespace
 ```
 
@@ -67,4 +69,3 @@ curl -i http://kong.example/echo --resolve kong.example:80:KONG_PROXY_IP
 ### Docs
 installation : `https://docs.konghq.com/kubernetes-ingress-controller/2.8.x/deployment/overview/`
 how to use   : `https://docs.konghq.com/kubernetes-ingress-controller/2.8.x/guides/getting-started/`
-
