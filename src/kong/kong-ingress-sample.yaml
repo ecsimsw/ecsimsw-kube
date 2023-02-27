@@ -1,10 +1,10 @@
 # KONG_PROXY_IP=$(kubectl get svc --namespace kong {KONG_PROXY_SVC_NAME} -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
-# curl -i http://kong.example/echo --resolve kong.example:80:KONG_PROXY_IP
+# curl -i http://kong.example/sample --resolve kong.example:80:KONG_PROXY_IP
 
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: echo
+  name: kong-sample-ingress
   namespace: kong
   annotations:
     konghq.com/strip-path: 'true'
@@ -14,11 +14,11 @@ spec:
     - host: kong.example
       http:
         paths:
-          - path: /echo
+          - path: /sample
             pathType: ImplementationSpecific
             backend:
               service:
-                name: echo
+                name: sample-echo-service
                 port:
                   number: 80
 ---
@@ -27,7 +27,7 @@ kind: Service
 metadata:
   labels:
     app: echo
-  name: echo
+  name: sample-echo-service
   namespace: kong
 spec:
   ports:
@@ -47,7 +47,7 @@ kind: Deployment
 metadata:
   labels:
     app: echo
-  name: echo
+  name: sample-echo-deployment
   namespace: kong
 spec:
   replicas: 1
