@@ -22,3 +22,39 @@ helm install metallb metallb/metallb -f manifests/metalLB-0.13.7-helm-values.yam
 ```
 
 `https://metallb.universe.tf/installation/`
+
+### Sample 
+
+##### IPAddressPool
+```
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: external-ip-pool-2
+  namespace: metallb-system
+spec:
+  addresses:
+    - 192.168.52.20-192.168.52.29
+---
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: external-ip-pool-3
+  namespace: metallb-system
+spec:
+  addresses:
+    - 192.168.52.30-192.168.52.39
+```
+
+#### L2Advertisement
+```
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: l2-advertisement
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+  - external-ip-pool-2
+  - external-ip-pool-3
+```
