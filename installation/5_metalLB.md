@@ -18,7 +18,7 @@ ipvs:
 #### Installation With Helm
 ```
 helm repo add metallb https://metallb.github.io/metallb
-helm install metallb metallb/metallb -f manifests/metalLB-0.13.7-helm-values.yaml -n metallb-system --create-namespace
+helm install metallb metallb/metallb -f manifests/metallb-v0.13.7-helm-values.yaml -n metallb-system --create-namespace
 ```
 
 `https://metallb.universe.tf/installation/`
