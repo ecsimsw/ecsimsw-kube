@@ -1,7 +1,4 @@
-### Install grafana v9.4.2 
-
-If you want to install grafana separately, not with prometheus or prometheus-stack, follow this.
-
+### Install grafana v9.4.2
 ```yaml
 kubectl apply -f manifests/grafana-v9.4.2.yaml
 ```

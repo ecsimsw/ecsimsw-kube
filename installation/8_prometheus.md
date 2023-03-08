@@ -1,7 +1,4 @@
 ### Install with helm
-
-If you want to install prometheus separately, not with grafana or prometheus-stack, follow this.
-
 ```
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo update
