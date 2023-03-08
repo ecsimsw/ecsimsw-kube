@@ -50,3 +50,8 @@ spec:
                 port:
                   number: 80
 ```
+
+### Check web ui
+1. Enter web ui on POD[name: prometheus-server, port: 9090], SERVICE[name: prometheus-server, port: 80] or INGRESS you made.   
+2. Go `status` -> `targets` -> `kubernetes-nodes` 
+3. Check all the nodes' status are `up`
