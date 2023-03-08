@@ -6,14 +6,14 @@ helm repo update
 helm install prometheus prometheus-community/prometheus -f manifests/prometheus-helm-values.yaml -n prometheus --create-namespace
 ```
 
-### If you want to test without persistent volume
+#### If you want to test without persistent volume
 ```
 server:
   persistentVolume:
     enabled: false ## If false, use emptyDir
 ```
 
-### If you have host only for promethues server
+#### If you have host only for promethues server
 Prometheus might be expecting to have control over the root path (/). (ex, prometheus.ecsimsw.com/)
 ```
 server:
@@ -24,7 +24,7 @@ server:
     path: /
 ```
 
-### Custom Ingress
+#### Custom Ingress
 
 If you want to balance request with sub path, create customized ingress like bellow (ex, kube.ecsimsw.com/prometheus). 
 

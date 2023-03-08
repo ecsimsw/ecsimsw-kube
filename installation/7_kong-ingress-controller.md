@@ -9,7 +9,7 @@ helm install kong/kong --generate-name --set ingressController.installCRDs=false
 
 ### Request to Kong Gateway
 
-Find kong proxy ip and port
+#### Find kong proxy ip and port
 
 ```
 HOST=$(kubectl get svc --namespace kong {KONG_PROXY_SVC_NAME} -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
@@ -20,9 +20,10 @@ curl $KONG_PROXY
 
 {"message":"no Route matched with those values"}
 
+     
 ### To proxy requests,
 
-Create routing configuration to proxy /echo requests to the echo serve
+#### Create routing configuration to proxy /echo requests to the echo server
 
 ```
 kubectl apply -f https://bit.ly/echo-service
@@ -59,7 +60,7 @@ spec:
 " | kubectl apply -f -
 ```
 
-Test the routing rule
+#### Test the routing rule
 
 ```
 KONG_PROXY_IP=$(kubectl get svc --namespace kong {KONG_PROXY_SVC_NAME} -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
@@ -67,5 +68,5 @@ curl -i http://kong.example/echo --resolve kong.example:80:KONG_PROXY_IP
 ```
 
 ### Docs
-installation : `https://docs.konghq.com/kubernetes-ingress-controller/2.8.x/deployment/overview/`
+installation : `https://docs.konghq.com/kubernetes-ingress-controller/2.8.x/deployment/overview/`    
 how to use   : `https://docs.konghq.com/kubernetes-ingress-controller/2.8.x/guides/getting-started/`
