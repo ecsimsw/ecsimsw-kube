@@ -1,4 +1,7 @@
 ### Install with helm
+
+If you want to install prometheus separately, not with grafana or prometheus-stack, follow this.
+
 ```
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo update
@@ -14,7 +17,6 @@ server:
 ```
 
 #### If you have host only for promethues server
-Prometheus might be expecting to have control over the root path (/). (ex, prometheus.ecsimsw.com/)
 ```
 server:
   ingress: 
@@ -26,6 +28,7 @@ server:
 
 #### Custom Ingress
 
+Prometheus might be expecting to have control over the root path (/). (ex, prometheus.ecsimsw.com/)        
 If you want to balance request with sub path, create customized ingress like bellow (ex, kube.ecsimsw.com/prometheus). 
 
 ```
@@ -52,6 +55,6 @@ spec:
 ```
 
 ### Check web ui
-1. Enter web ui on POD[name: prometheus-server, port: 9090], SERVICE[name: prometheus-server, port: 80] or INGRESS you made.   
+1. Enter web ui on POD[name: prometheus-server, port: 9090], SERVICE[name: prometheus-server, port: 80] or INGRESS you made. (In my case, kube.ecsimsw.com/prometheus)
 2. Go `status` -> `targets` -> `kubernetes-nodes` 
 3. Check all the nodes' status are `up`
