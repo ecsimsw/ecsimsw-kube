@@ -27,9 +27,5 @@ LbTestEcho : 192.168.52.20
 Kong-proxy : 192.168.52.21   
    
 KongTestEcho : kube.ecsimsw.com/kong-sample/**    
-Prometeus : kube.ecsimsw.com/prometheus/**    
-Grafana : grafana.ecsimsw.com    
-
-### Loging system    
-Prometheus v2.41.0     
-Grafana v9.4.2           
+Prometeus(v2.41.0) : kube.ecsimsw.com/prometheus/**    
+Grafana(v9.4.2) : grafana.ecsimsw.com/**    
