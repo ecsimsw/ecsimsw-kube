@@ -3,14 +3,12 @@ My home kubernetes cluster
 
 ## Configuration
 
-### Nodes
-
-#### kubernetes nodes    
+### kubernetes nodes    
 MasterNode  : ubuntu-20.04 / cpu 4, memory 4096 / 192.168.52.10   
 WorkerNode1 : ubuntu-20.04 / cpu 2, memory 2048 / 192.168.52.11   
 WorkerNode1 : ubuntu-20.04 / cpu 2, memory 2048 / 192.168.52.12   
    
-#### NFS nodes
+### NFS nodes
 NFS1(50GB) : ubuntu-20.04 / cpu 1, memory 1024 / 192.168.52.13   
 NFS2(10GB) : ubuntu-20.04 / cpu 1, memory 1024 / 192.168.52.14   
 
