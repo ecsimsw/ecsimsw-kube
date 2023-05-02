@@ -18,5 +18,3 @@ spec:
           image: nginx
           ports:
             - containerPort: 80
-
-# 디플로이먼트(Deployment)는 파드와 레플리카셋(ReplicaSet)에 대한 선언적 업데이트를 제공한다.
