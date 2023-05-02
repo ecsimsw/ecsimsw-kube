@@ -1,4 +1,15 @@
-## VMS
+## NFS Machines
+
+### configurations
+```
+0. Virtual machine provider
+1. Install NFS_Server 
+2. Configure access list
+3. Open Firewall
+4. How to use in client side
+```
+
+## Virtual machine provider
 ```
 Vagrant.configure("2") do |config|
   config.vm.define "nfs1" do |nfs1|
@@ -25,7 +36,18 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-## Install NFS_Server 
+## Server side
+
+Sample shared directory path : `/mnt/nfs_shared1/` 
+
+### Make shared path
+```
+sudo mkdir -p /mnt/nfs_shared1
+sudo chown 777 /mnt/nfs_shared1/
+sudo chown -R nobody:nogroup /mnt/nfs_shared1/
+```
+
+### Install nfs-server
 
 ````
 sudo apt-get install nfs-kernel-server portmap
@@ -33,53 +55,41 @@ sudo systemctl restart nfs-server
 service nfs-server status
 ````
 
-## Make shared path
-```
-sudo mkdir -p /mnt/nfs_shared1
-sudo chown 777 /mnt/nfs_shared1/
-sudo chown -R nobody:nogroup /mnt/nfs_shared1/
-```
-
-## Configure access list
-```
-sudo vi /etc/exports 
-```
+### Configure access list
+`sudo vi /etc/exports`
 
 ```
 /mnt/nfs_shared1 *(rw,sync,no_subtree_check)
 ```
-
 - rw : 읽기, 쓰기   
 - sync : NFS가 응답 전 변경 내용을 기록함
 - no_subtree_check : 하위 트리 검사 비활성화
 - no_root_squash : root 권한을 가진 작업이라도 권한이 없는 사용자로 변환한다.
 
-## Apply access list
+### Apply access list
 
 ```
 sudo exportfs -a
-
 sudo systemctl restart nfs-kernel-server
 ```
 
-## Open Firewall
+### Open Firewall
+
+Check firewall status 
 
 ```
 sudo ufw status
 ```
-Status: inactive
+
+Enable it if it's inactive
 
 ```
-sudo ufw enabl
+sudo ufw enable
 ```
-Command may disrupt existing ssh connections. Proceed with operation (y|n)? y   
-Firewall is active and enabled on system startup
 
+Allow NFS acess port (default : 2049)
 ```
 sudo ufw allow 2049
-```
-
-```
 systemctl status nfs-server.service
 ```
 
@@ -89,10 +99,13 @@ systemctl status nfs-server.service
 sudo apt-get install nfs-common
 ```
 
+Sample mount directory path : `nfs1/mnt/shared1`
+
 ```
 mkdir -p nfs1/mnt/shared1
 ```
 
+Mount NFS shared directory on client mount path
 ```
 sudo mount -t nfs 192.168.52.13:/mnt/nfs_shared1 nfs1/mnt/nfs_shared1
 ```
