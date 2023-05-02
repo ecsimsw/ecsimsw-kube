@@ -1,13 +1,19 @@
 # ecs-kube
-My home k8s cluster
+My home kubernetes cluster
 
 ## Configuration
 
 ### Nodes
+
+#### kubernetes nodes    
 MasterNode  : ubuntu-20.04 / cpu 4, memory 4096 / 192.168.52.10   
 WorkerNode1 : ubuntu-20.04 / cpu 2, memory 2048 / 192.168.52.11   
 WorkerNode1 : ubuntu-20.04 / cpu 2, memory 2048 / 192.168.52.12   
    
+#### NFS nodes
+NFS1(50GB) : ubuntu-20.04 / cpu 1, memory 1024 / 192.168.52.13   
+NFS2(10GB) : ubuntu-20.04 / cpu 1, memory 1024 / 192.168.52.14   
+
 ### Kubernetes Cluster Info
 CRI : CRI-O v1.23   
 CNI : CALICO v3.25   
