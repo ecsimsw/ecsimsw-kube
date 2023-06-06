@@ -64,3 +64,11 @@ kubeadm reset
 ```
 
 ![image](https://user-images.githubusercontent.com/46060746/220055643-79cd6d69-af5b-40a0-b906-2a793b9a1866.png)
+
+if) if nslookup is not working on dnsutils, restart core dns pod is also a good option
+
+```
+kubectl -n kube-system rollout restart deployment coredns
+
+// https://stackoverflow.com/questions/45805483/kubernetes-pods-cant-resolve-hostnames
+```
