@@ -67,6 +67,6 @@ KONG_PROXY_IP=$(kubectl get svc --namespace kong kong-1686487324-kong-proxy -o j
 curl -i http://kong.example/echo --resolve kong.example:80:${KONG_PROXY_IP}
 ```
 
-### Docsf
+### Docs
 installation : `https://docs.konghq.com/kubernetes-ingress-controller/2.8.x/deployment/overview/`    
 how to use   : `https://docs.konghq.com/kubernetes-ingress-controller/2.8.x/guides/getting-started/`
