@@ -13,6 +13,7 @@
 ```
 Vagrant.configure("2") do |config|
   config.vm.define "master" do |master|
+    master.vm.network "forwarded_port", guest: 6443, host: 6443
     master.vm.box = "bento/ubuntu-20.04"
     master.vm.network "private_network", ip: "192.168.52.10"
     master.vm.hostname = "master"
