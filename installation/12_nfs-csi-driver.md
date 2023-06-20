@@ -13,7 +13,7 @@ helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs
 helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \
     -n nfs-provisioner --create-namespace\
     --set nfs.server=192.168.52.13\
-    --set nfs.path=/mnt/nfs_shared1
+    --set nfs.path=/shared
 ```
 
 ### ERROR : MountVolume.SetUp failed │  exit status 32
