@@ -59,11 +59,13 @@ service nfs-server status
 `sudo vi /etc/exports`
 
 ```
-/shared *(rw,sync,all_squash,no_subtree_check)
+/shared *(rw,sync,insecure,no_root_squash,all_squash,no_subtree_check,fsid=0f)
 ```
 - rw : 읽기, 쓰기   
 - sync : NFS가 응답 전 변경 내용을 기록함
-  all_squash : 모든 사용자 권한을 익명 사용자 권한, nobody:nogroup으로 지정
+- insecure : 인증되지 않는 엑세스 허용
+- no_root_squash : client의 root 엑세스를 root 사용자로 인정 
+- all_squash : 모든 사용자 권한을 익명 사용자 권한, nobody:nogroup으로 지정
 - no_subtree_check : 하위 트리 검사 비활성화
 - no_root_squash : root 권한을 가진 작업이라도 권한이 없는 사용자로 변환한다.
 
