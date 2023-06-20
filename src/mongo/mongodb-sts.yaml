@@ -1,35 +1,37 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: mysql
-  namespace: mysql
+  name: mongodb
+  namespace: mongodb
 spec:
-  serviceName: mysql
+  serviceName: mongodb
   replicas: 1
   selector:
     matchLabels:
-      app: mysql
+      app: mongodb
   template:
     metadata:
       labels:
-        app: mysql
+        app: mongodb
     spec:
       containers:
-        - name: mysql
-          image: mysql:8.0
+        - name: mongodb
+          image: mongo:6.0.1
           ports:
-            - containerPort: 3306
+            - containerPort: 27017
           env:
-            - name: MYSQL_ROOT_PASSWORD
+            - name: MONGO_INITDB_ROOT_USERNAME
+              value: root
+            - name: MONGO_INITDB_ROOT_PASSWORD
               value: password
           volumeMounts:
-            - name: mysql-persistent-storage
-              mountPath: /var/lib/mysql-db
+            - name: mongodb-persistent-storage
+              mountPath: /data/db
       imagePullSecrets:
         - name: docker-registry-secret
   volumeClaimTemplates:
     - metadata:
-        name: mysql-persistent-storage
+        name: mongodb-persistent-storage
       spec:
         storageClassName: nfs-client
         accessModes: [ "ReadWriteMany" ]
