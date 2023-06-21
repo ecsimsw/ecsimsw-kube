@@ -21,7 +21,7 @@ helm repo add metallb https://metallb.github.io/metallb
 
 helm install metallb metallb/metallb -n metallb-system --create-namespace
 or
-helm install metallb metallb/metallb -f manifests/metallb-v0.13.7-helm-values.yaml -n metallb-system --create-namespace
+helm install metallb metallb/metallb -f metallb-v0.13.7-helm-values.yaml -n metallb-system --create-namespace
 ```
 
 `https://metallb.universe.tf/installation/`
