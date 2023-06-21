@@ -33,3 +33,31 @@ Kong-proxy : 192.168.52.21
 KongTestEcho : kube.ecsimsw.com/kong-sample/**    
 Prometeus(v2.41.0) : kube.ecsimsw.com/prometheus/**    
 Grafana(v9.4.2) : grafana.ecsimsw.com/**    
+
+## Schedule
+- [x] Kubernetes cluster 
+  - [x] Kubeadm, Kubectl, Kubelet
+  - [x] CRI
+  - [x] CNI
+- [x] MetalLB
+- [x] Kong Ingress controller
+- [x] Volumes
+  - [x] NFS Server
+  - [x] NFS CSI driver / StorageClass
+- [ ] Monitoring system
+  - [ ] Prometheus
+  - [ ] Grafana
+  - [ ] Metric server
+- [ ] Publishing servers
+  - [x] MySql
+  - [x] Mongodb
+  - [ ] Kafka
+  - [ ] Redis
+  - [ ] Sample applications
+- [ ] CI/CD
+  - [ ] Jenkins
+  - [ ] Github actions hosted runner
+  - [ ] GitOps
+- [ ] TLS configuration
+  - [ ] CertManager
+- [ ] Load test
