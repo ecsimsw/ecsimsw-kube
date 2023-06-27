@@ -1,3 +1,3 @@
 helm install kafka oci://registry-1.docker.io/bitnamicharts/kafka \
-    -f kafka-helm-vaules.yaml \
+    -f kafka-helm-values.yaml \
     -n kafka
