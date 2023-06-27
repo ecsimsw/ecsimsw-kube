@@ -53,6 +53,8 @@ Grafana(v9.4.2) : grafana.ecsimsw.com/**
   - [x] Mongodb
   - [ ] Kafka
   - [ ] Redis
+    - [ ] Sentinel?
+    - [ ] Metrics?
   - [ ] Sample applications
 - [ ] CI/CD
   - [ ] Jenkins
