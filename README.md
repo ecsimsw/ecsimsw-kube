@@ -51,8 +51,8 @@ Grafana(v9.4.2) : grafana.ecsimsw.com/**
 - [ ] Publishing servers
   - [x] MySql
   - [x] Mongodb
-  - [ ] Kafka
-  - [ ] Redis
+  - [x] Kafka
+  - [x] Redis
     - [ ] Sentinel?
     - [ ] Metrics?
   - [ ] Sample applications
