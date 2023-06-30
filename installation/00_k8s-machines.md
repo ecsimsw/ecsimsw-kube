@@ -54,6 +54,7 @@ vagrant up
 
 #### List machines status
 ```
+
 vagrant status
 ```
 
@@ -63,3 +64,7 @@ vagrant ssh master
 vagrant ssh worker1
 vagrant ssh worker2
 ```
+
+### Vagrant-Architecture
+
+![Vagrant-Architecture](https://github.com/ecsimsw/ecsimsw-kube/assets/46060746/88c847d9-308c-4d59-a39c-d5d4cbff7f0e)
