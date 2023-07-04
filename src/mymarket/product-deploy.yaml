@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: products-server
+  namespace: mymarket
+  labels:
+    app: products-server
+spec:
+  selector:
+    matchLabels:
+      app: products-server
+  template:
+    metadata:
+      labels:
+        app: products-server
+    spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - products-server
+                topologyKey: kubernetes.io/hostname
+              weight: 100
+      containers:
+        - name: products-server
+          image: ghcr.io/ecsimsw/mymarket/products:latest
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "prod"
+            - name: MYSQL_DB_HOST
+              value: "10.100.0.170"
+  #              value: <service-name>.<service-namespace>.svc.cluster.local
+            - name: MYSQL_DB_PORT
+              value: "3306"
+            - name: MYSQL_DB_USERNAME
+              value: "root"
+            - name: MYSQL_DB_PASSWORD
+              value: "password"
+            - name: KAFKA_HOST
+              value: "10.101.5.239"
+            - name: KAFKA_PORT
+              value: "9092"
+          ports:
+            - containerPort: 8080
+          startupProbe:
+            httpGet:
+              path: /
+              port: 8080
+            failureThreshold: 20
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          resources:
+            requests:
+              cpu: 250m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 128Mi
+      imagePullSecrets:
+        - name: dockerconfigjson-github-com
