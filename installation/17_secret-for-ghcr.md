@@ -1,0 +1,10 @@
+## secret for ghcr registry
+
+```shell
+kubectl create secret docker-registry ghcr-secret \ 
+    -n mymarket \ 
+    --docker-server=ghcr.io \
+    --docker-username=ecsimsw \
+    --docker-password=${GITHUB_TOKEN} \ 
+    --docker-email=ecsimsw@gmail.com
+```

@@ -67,4 +67,4 @@ spec:
               cpu: 250m
               memory: 128Mi
       imagePullSecrets:
-        - name: dockerconfigjson-github-com
+        - name: ghcr-secret
