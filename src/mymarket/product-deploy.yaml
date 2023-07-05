@@ -37,6 +37,8 @@ spec:
   #              value: <service-name>.<service-namespace>.svc.cluster.local
             - name: MYSQL_DB_PORT
               value: "3306"
+            - name: MYSQL_DB_NAME
+              value: "mymarket"
             - name: MYSQL_DB_USERNAME
               value: "root"
             - name: MYSQL_DB_PASSWORD
