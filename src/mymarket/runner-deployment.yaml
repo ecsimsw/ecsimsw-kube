@@ -1,0 +1,12 @@
+## ecsimsw-ga-cn5rp-tf52c
+
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  name: ecsimsw-ga
+  namespace: mymarket
+spec:
+  replicas: 1
+  template:
+    spec:
+      repository: ecsimsw/A-to-Z
