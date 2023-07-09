@@ -6,6 +6,7 @@ metadata:
   labels:
     app: products-server
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: products-server
@@ -57,16 +58,22 @@ spec:
             periodSeconds: 10
           readinessProbe:
             httpGet:
-              path: /
+              path: /actuator/health/readiness
               port: 8080
             initialDelaySeconds: 5
-            periodSeconds: 5
+            periodSeconds: 120
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: actuator
+            failureThreshold: 20
+            periodSeconds: 120
           resources:
             requests:
-              cpu: 250m
-              memory: 128Mi
+              cpu: 500m
+              memory: 518Mi
             limits:
-              cpu: 250m
-              memory: 128Mi
+              cpu: 500m
+              memory: 518Mi
       imagePullSecrets:
         - name: ghcr-secret
