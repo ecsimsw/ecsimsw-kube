@@ -35,10 +35,9 @@ Prometeus(v2.41.0) : kube.ecsimsw.com/prometheus/**
 Grafana(v9.4.2) : grafana.ecsimsw.com/**    
 
 ## Schedule
-- [x] Kubernetes cluster 
-  - [x] Kubeadm, Kubectl, Kubelet
-  - [x] CRI
-  - [x] CNI
+- [x] Kubeadm, Kubectl, Kubelet
+- [x] CRI
+- [x] CNI
 - [x] MetalLB
 - [x] Kong Ingress controller
 - [x] Volumes
@@ -48,18 +47,16 @@ Grafana(v9.4.2) : grafana.ecsimsw.com/**
   - [ ] Prometheus
   - [ ] Grafana
   - [ ] Metric server
-- [ ] Publishing servers
-  - [x] MySql
-  - [x] Mongodb
-  - [x] Kafka
-  - [x] Redis
-    - [ ] Sentinel?
-    - [ ] Metrics?
-  - [ ] Sample applications
+- [x] MySql
+- [x] Mongodb
+- [x] Kafka
+- [x] Redis
+  - [ ] Sentinel?
+  - [ ] Metrics?
 - [ ] CI/CD
   - [x] Github actions self hosted runner
   - [x] HPA on Github actions self hosted runner 
   - [ ] GitOps
 - [ ] TLS configuration
-  - [ ] CertManager
+  - [x] CertManager
 - [ ] Load test
