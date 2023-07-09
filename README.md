@@ -57,8 +57,8 @@ Grafana(v9.4.2) : grafana.ecsimsw.com/**
     - [ ] Metrics?
   - [ ] Sample applications
 - [ ] CI/CD
-  - [ ] Jenkins
-  - [ ] Github actions hosted runner
+  - [x] Github actions self hosted runner
+  - [x] HPA on Github actions self hosted runner 
   - [ ] GitOps
 - [ ] TLS configuration
   - [ ] CertManager
