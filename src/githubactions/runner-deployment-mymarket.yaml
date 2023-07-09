@@ -1,12 +1,12 @@
-## ecsimsw-ga-cn5rp-tf52c
-
 apiVersion: actions.summerwind.dev/v1alpha1
 kind: RunnerDeployment
 metadata:
-  name: ecsimsw-ga
-  namespace: mymarket
+  name: github-action-runner-mymarket
+  namespace: actions-runner-system
 spec:
   replicas: 1
   template:
     spec:
       repository: ecsimsw/A-to-Z
+      labels:
+        - ecsimsw-ga
