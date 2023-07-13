@@ -46,17 +46,25 @@ Grafana(v9.4.2) : grafana.ecsimsw.com/**
 - [ ] Monitoring system
   - [ ] Prometheus
   - [ ] Grafana
-  - [ ] Metric server
+  - [x] Metric-server
 - [x] MySql
 - [x] Mongodb
 - [x] Kafka
 - [x] Redis
   - [ ] Sentinel?
   - [ ] Metrics?
+- [ ] Spring application (mymarket)    
+  - [ ] Envs - environment, secret mappings
+  - [x] Probes - startupProbe, readinessProbe, livenessProbe
+  - [x] PodAntiAffinity
+  - [x] HPA
+  - [x] PodDisruptionBudget
 - [ ] CI/CD
   - [x] Github actions self hosted runner
-  - [x] HPA on Github actions self hosted runner 
-  - [ ] GitOps
+  - [x] Actions runner controller
+  - [x] Runner deployment
+  - [x] Horizontal runner auto scaler
+  - [ ] Build cache
 - [ ] TLS configuration
   - [x] CertManager
 - [ ] Load test
