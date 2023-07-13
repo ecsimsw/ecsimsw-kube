@@ -21,5 +21,14 @@ Horizontal autoscaling based on other resources than CPU/Memory
 helm repo add metrics-server https://kubernetes-sigs.github.io/metrics-server/
 
 helm install --namespace kube-system metrics-server metrics-server/metrics-server \
-   --set replicas=2 
+   --set replicas=2 \
+   --set args={--kubelet-insecure-tls}
 ```
+
+### Certificate Authority
+
+Kubelet certificate needs to be signed by cluster Certificate Authority (or disable certificate validation by passing --kubelet-insecure-tls to Metrics Server)
+
+### High availability
+
+Metrics Server can be installed in high availability mode directly from a YAML manifest or via the official Helm chart by setting the replicas value greater than 1.
