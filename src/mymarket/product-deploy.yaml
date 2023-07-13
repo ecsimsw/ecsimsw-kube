@@ -33,6 +33,8 @@ spec:
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: "prod"
+            - name: MYSQL_DATASOURCE_URL
+              value : "jdbc:mysql://10.100.0.170:3306/mymarket?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul"
             - name: MYSQL_DB_HOST
               value: "10.100.0.170"
   #              value: <service-name>.<service-namespace>.svc.cluster.local
