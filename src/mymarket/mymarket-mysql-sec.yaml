@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mymarket-mysql-secret
+  namespace: mymarket
+data:
+  MYSQL_DB_USERNAME: cm9vdA==
+  MYSQL_DB_PASSWORD: cGFzc3dvcmQ=

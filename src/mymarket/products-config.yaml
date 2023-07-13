@@ -1,0 +1,13 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: products-config
+  namespace: kube-system
+data:
+  SPRING_PROFILES_ACTIVE: "prod"
+  MYSQL_DATASOURCE_URL: "jdbc:mysql://10.100.0.170:3306/mymarket?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul"
+  MYSQL_DB_HOST: "10.100.0.170"
+  MYSQL_DB_PORT: "3306"
+  MYSQL_DB_NAME: "mymarket"
+  KAFKA_HOST: "10.101.5.239"
+  KAFKA_PORT: "9092"
