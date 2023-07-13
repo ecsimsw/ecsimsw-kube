@@ -67,7 +67,7 @@ spec:
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
-              port: actuator
+              port: 80
             failureThreshold: 20
             periodSeconds: 120
           resources:
