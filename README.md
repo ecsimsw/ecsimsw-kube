@@ -53,8 +53,8 @@ Grafana(v9.4.2) : grafana.ecsimsw.com/**
 - [x] Redis
   - [ ] Sentinel?
   - [ ] Metrics?
-- [ ] Spring application (mymarket)    
-  - [ ] Envs - environment, secret mappings
+- [x] Deploy spring application (mymarket)    
+  - [x] Envs - environment, secret mappings
   - [x] Probes - startupProbe, readinessProbe, livenessProbe
   - [x] PodAntiAffinity
   - [x] HPA
