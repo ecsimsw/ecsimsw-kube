@@ -3,12 +3,12 @@
 ref,
 https://github.com/actions/actions-runner-controller/blob/master/docs/quickstart.md
 
-### 1. install cert-manager
+### Install cert-manager
 ```
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.8.2/cert-manager.yaml
 ```
 
-### 2. install arc with helm
+### Install arc with helm
 ```
 helm repo add actions-runner-controller https://actions-runner-controller.github.io/actions-runner-controller
 ```
@@ -20,7 +20,7 @@ helm upgrade --install --namespace actions-runner-system --create-namespace\
   --wait actions-runner-controller actions-runner-controller/actions-runner-controller
 ```
 
-### 3. define runnerDeployment for specific repo
+### Define runnerDeployment for specific repo
 
 ``` yaml
 apiVersion: actions.summerwind.dev/v1alpha1
@@ -36,7 +36,7 @@ spec:
         - ${MY_LABEL}
 ```
 
-### 4. HPA
+### HPA
 
 ref, `https://github.com/actions/actions-runner-controller/blob/master/docs/automatically-scaling-runners.md`
 
