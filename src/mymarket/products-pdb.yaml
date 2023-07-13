@@ -1,7 +1,7 @@
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
-  name: main-server-pdb
+  name: products-server-pdb
   namespace: mymarket
 spec:
   minAvailable: 2
