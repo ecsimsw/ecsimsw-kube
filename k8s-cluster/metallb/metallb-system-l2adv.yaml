@@ -5,8 +5,7 @@ metadata:
   namespace: metallb-system
 spec:
   ipAddressPools:
-  - external-ip-pool-2
-  - external-ip-pool-3
+  - external-ip-pool-1
 
 # MetalLB는 L2 네트워크(ARP/NDP)와 L3 네트워크(BGP)로 밸런싱한다.
 # (Boarder gateway protocol : 서로 다른 조직의 네트워크나 ISP를 연결할 떄 사용)
