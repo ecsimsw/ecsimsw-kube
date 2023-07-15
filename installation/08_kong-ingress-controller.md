@@ -70,3 +70,9 @@ curl -i http://kong.example/echo --resolve kong.example:80:${KONG_PROXY_IP}
 ### Docs
 installation : `https://docs.konghq.com/kubernetes-ingress-controller/2.8.x/deployment/overview/`    
 how to use   : `https://docs.konghq.com/kubernetes-ingress-controller/2.8.x/guides/getting-started/`
+
+### Strip path
+
+strip_path can be configured to strip the matching part of your path from the HTTP request before it is proxied.   
+
+If it is set to "true", the part of the path specified in the Ingress rule will be stripped out before the request is sent to the service. For example, when it is set to "true", the Ingress rule has a path of /foo and the HTTP request that matches the Ingress rule has the path /foo/bar/something, then the request sent to the Kubernetes service will have the path /bar/something.
