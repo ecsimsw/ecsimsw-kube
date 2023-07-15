@@ -53,7 +53,7 @@ echo '1' > /proc/sys/net/ipv4/ip_forward
 
 #### Declare node-ip on kubelet environment values
 ```
-NODE_IP=192.168.52.10 
+NODE_IP=${NODE_IP_ADDRESS}
 echo "KUBELET_EXTRA_ARGS=\"--node-ip=$NODE_IP\"" >> /etc/default/kubelet
 ```
 
