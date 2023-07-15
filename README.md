@@ -13,6 +13,7 @@ NFS1(50GB) : ubuntu-20.04 / cpu 1, memory 1024 / 192.168.52.13
 NFS2(10GB) : ubuntu-20.04 / cpu 1, memory 1024 / 192.168.52.14   
 
 ### Kubernetes Cluster Info
+K8S : v1.27.2
 CRI : CRI-O v1.23   
 CNI : CALICO v3.25   
    
@@ -26,13 +27,7 @@ Node-reserved-ip-pool-1 : 192.168.52.10-192.168.52.19
 External-ip-pool-2 : 192.168.52.20-192.168.52.29     
 External-ip-pool-2 : 192.168.52.30-192.168.52.39      
 
-### IP / Services   
-LbTestEcho : 192.168.52.20   
-Kong-proxy : 192.168.52.21   
-   
-KongTestEcho : kube.ecsimsw.com/kong-sample/**    
-Prometeus(v2.41.0) : kube.ecsimsw.com/prometheus/**    
-Grafana(v9.4.2) : grafana.ecsimsw.com/**    
+Kong-proxy : 192.168.52.21 
 
 ## Schedule
 - [x] Kubeadm, Kubectl, Kubelet
@@ -59,12 +54,12 @@ Grafana(v9.4.2) : grafana.ecsimsw.com/**
   - [x] PodAntiAffinity
   - [x] HPA
   - [x] PodDisruptionBudget
-- [ ] CI/CD
+- [x] CI/CD
   - [x] Github actions self hosted runner
   - [x] Actions runner controller
   - [x] Runner deployment
   - [x] Horizontal runner auto scaler
-  - [ ] Build cache
+  - [x] Build cache
 - [ ] TLS configuration
   - [x] CertManager
 - [ ] Load test
