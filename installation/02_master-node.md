@@ -3,7 +3,7 @@
 #### Declare `NODE_IP`, `POD_NETWORK_CIDR` according to your configuration.
 
 ```
-NODE_IP=192.168.52.10
+NODE_IP=${NODE_IP_ADDRESS}
 POD_NETWORK_CIDR=172.16.0.0/16
 ```
 
