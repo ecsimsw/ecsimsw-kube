@@ -3,31 +3,30 @@ My home kubernetes cluster
 
 ## Configuration
 
-### kubernetes nodes    
-MasterNode  : ubuntu-20.04 / cpu 4, memory 4096 / 192.168.52.10   
-WorkerNode1 : ubuntu-20.04 / cpu 2, memory 2048 / 192.168.52.11   
-WorkerNode1 : ubuntu-20.04 / cpu 2, memory 2048 / 192.168.52.12   
+### Architecture
+![image](https://github.com/ecsimsw/ecsimsw-kube/assets/46060746/3d196fe8-4ecb-4a64-bfd3-6260e74b6275)
+
+### K8S cluster nodes   
+Master  : ubuntu-20.04 / cpu 4, memory 4096 / 192.168.0.100   
+Worker1 : ubuntu-20.04 / cpu 4, memory 4096 / 192.168.0.101   
+Worker2 : ubuntu-20.04 / cpu 2, memory 2048 / 192.168.0.102   
+Worker3 : ubuntu-18.04 / cpu 2, memory 8192 / 192.168.0.11   
    
 ### NFS nodes
-NFS1(50GB) : ubuntu-20.04 / cpu 1, memory 1024 / 192.168.52.13   
-NFS2(10GB) : ubuntu-20.04 / cpu 1, memory 1024 / 192.168.52.14   
+NFS1    : ubuntu-20.04 / cpu 1, memory 1024 / 50GB / 192.168.0.111        
+NFS2    : ubuntu-20.04 / cpu 0.5, memory 512 / 10GB / 192.168.0.112         
 
-### Kubernetes Cluster Info
-K8S : v1.27.2
-CRI : CRI-O v1.23   
-CNI : CALICO v3.25   
+## Kubernetes Cluster Info
+K8S : v1.27.2      
+CRI : CRI-O v1.23      
+CNI : CALICO v3.25     
    
-Ingress controller : Kong v3.1   
-Network load balancers : Metallb v0.13.7   
+Ingress controller : Kong v3.1 / 192.168.0.120        
+Network load balancers : Metallb v0.13.7     
 
-### Network Info
-Pod network CIDR : 172.16.0.0/16   
-    
-Node-reserved-ip-pool-1 : 192.168.52.10-192.168.52.19       
-External-ip-pool-2 : 192.168.52.20-192.168.52.29     
-External-ip-pool-2 : 192.168.52.30-192.168.52.39      
-
-Kong-proxy : 192.168.52.21 
+node-reserved-ip-pool-1 : 192.168.0.0   - 192.168.0.99    
+node-reserved-ip-pool-2 : 192.168.0.100 - 192.168.0.119    
+External-ip-pool-1      : 192.168.0.120 - 192.168.0.149        
 
 ## Schedule
 - [x] Kubeadm, Kubectl, Kubelet
