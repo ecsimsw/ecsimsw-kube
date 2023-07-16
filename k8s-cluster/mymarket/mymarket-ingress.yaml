@@ -8,15 +8,15 @@ metadata:
 spec:
   ingressClassName: kong
   rules:
-    - host: kube.ecsimsw.com
+    - host: mymarket.ecsimsw.com
       http:
         paths:
-          - path: /mymarket
+          - path: /
             pathType: ImplementationSpecific
             backend:
               service:
-                name: nginx-svc-clusterip
+                name: products-server-svc
                 port:
-                  number: 80
+                  number: 8080
 
-# curl -i http://kube.ecsimsw.com/nginx-test --resolve kube.ecsimsw.com:80:192.168.0.120
+# curl -i http://mymarket.ecsimsw.com/ --resolve mymarket.ecsimsw.com:80:192.168.0.120
