@@ -1,10 +1,11 @@
-# ecs-kube
+# ecsimsw-kube
 My home kubernetes cluster
 
 ## Configuration
 
 ### Architecture
-![image](https://github.com/ecsimsw/ecsimsw-kube/assets/46060746/3d196fe8-4ecb-4a64-bfd3-6260e74b6275)
+![image](https://github.com/ecsimsw/ecsimsw-kube/assets/46060746/74dc1416-6da4-4003-a7dd-5f2ef6a7f67c)
+
 
 ### K8S cluster nodes   
 Master  : ubuntu-20.04 / cpu 4, memory 4096 / 192.168.0.100   
