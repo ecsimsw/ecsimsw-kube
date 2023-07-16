@@ -5,9 +5,9 @@ metadata:
   namespace: mymarket
 data:
   SPRING_PROFILES_ACTIVE: "prod"
-  MYSQL_DATASOURCE_URL: "jdbc:mysql://10.100.0.170:3306/mymarket?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul"
-  MYSQL_DB_HOST: "10.100.0.170"
+  MYSQL_DATASOURCE_URL: "jdbc:mysql://${MYSQL_DB_HOST}:${MYSQL_DB_PORT}/${MYSQL_DB_NAME}?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul"
+  MYSQL_DB_HOST: "mysql.mysql.svc.cluster.local"
   MYSQL_DB_PORT: "3306"
   MYSQL_DB_NAME: "mymarket"
-  KAFKA_HOST: "10.101.5.239"
+  KAFKA_HOST: "kafka.kafka.svc.cluster.local"
   KAFKA_PORT: "9092"
