@@ -4,8 +4,7 @@ My home kubernetes cluster
 ## Configuration
 
 ### Architecture
-![image](https://github.com/ecsimsw/ecsimsw-kube/assets/46060746/74dc1416-6da4-4003-a7dd-5f2ef6a7f67c)
-
+![image](https://github.com/ecsimsw/ecsimsw-kube/assets/46060746/f66df030-0fb0-4ed2-9632-c180951fc48c)
 
 ### K8S cluster nodes   
 Master  : ubuntu-20.04 / cpu 4, memory 4096 / 192.168.0.100   
