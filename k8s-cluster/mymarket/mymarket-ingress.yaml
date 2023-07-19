@@ -19,9 +19,4 @@ spec:
                 port:
                   number: 8080
 
-# curl -i http://mymarket.ecsimsw.com/ --resolve mymarket.ecsimsw.com:80:192.168.0.120
-# curl -X POST  \
-#    -H 'Content-Type: application/json' \
-#    -d '{"productId" : "1L","userId" : "1L", "quantity" : 1}'  \
-#    -i  http://mymarket.ecsimsw.com/api/products  \
-#    --resolve mymarket.ecsimsw.com:80:192.168.0.120
+# curl -i mymarket.ecsimsw.com:32080 --resolve mymarket.ecsimsw.com:32080:192.168.0.100
