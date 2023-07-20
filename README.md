@@ -7,10 +7,10 @@ My home kubernetes cluster
 ![image](https://github.com/ecsimsw/ecsimsw-kube/assets/46060746/f66df030-0fb0-4ed2-9632-c180951fc48c)
 
 ### K8S cluster nodes   
-Master  : ubuntu-20.04 / cpu 4, memory 4096 / 192.168.0.100   
-Worker1 : ubuntu-20.04 / cpu 4, memory 4096 / 192.168.0.101   
-Worker2 : ubuntu-20.04 / cpu 2, memory 2048 / 192.168.0.102   
-Worker3 : ubuntu-18.04 / cpu 2, memory 8192 / 192.168.0.11   
+Master  : ubuntu-20.04 / cpu 4, memory 4096 / 192.168.0.100       
+Worker1 : ubuntu-20.04 / cpu 4, memory 4096 / 192.168.0.101       
+Worker2 : ubuntu-20.04 / cpu 2, memory 2048 / 192.168.0.102       
+Worker3 : ubuntu-18.04 / cpu 2, memory 8192 / 192.168.0.11       
    
 ### NFS nodes
 NFS1    : ubuntu-20.04 / cpu 1, memory 1024 / 50GB / 192.168.0.111        
