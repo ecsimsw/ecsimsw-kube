@@ -34,6 +34,7 @@ It seems there are two separate networks (router to real machines) and (real mac
 The easiest way is to use kubernetes port forwarding on ingress proxy service at real machine and router grep that port.
 But I'm going to try to build a network of (routers - real nodes - virtual machines) for now.
 
+## Port forward for now
 ```
-kubectl port-forward service/{kong-proxy-service} -n kong 8080:80 --address=0.0.0.0
+kubectl port-forward service/${kong-proxy} -n kong 80:80 --address='0.0.0.0'
 ```
