@@ -24,7 +24,7 @@ spec:
                 name: mysql-secret
           volumeMounts:
             - name: mysql-persistent-storage
-              mountPath: /var/lib/mysql-db
+              mountPath: /var/lib/mysql
       imagePullSecrets:
         - name: docker-registry-secret
   volumeClaimTemplates:
