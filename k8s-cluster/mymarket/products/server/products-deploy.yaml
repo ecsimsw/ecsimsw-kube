@@ -32,9 +32,9 @@ spec:
           image: ghcr.io/ecsimsw/mymarket/products:latest
           envFrom:
           - configMapRef:
-              name: products-config
+              name: products-server-config
           - secretRef:
-              name: mymarket-mysql-secret
+              name: products-mysql-secret
           ports:
             - containerPort: 8080
           startupProbe:
