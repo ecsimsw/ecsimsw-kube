@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: mongodb
-  namespace: mongodb
+  name: audits-mongodb-sts
+  namespace: mymarket
 spec:
-  serviceName: mongodb
+  serviceName: audits-mongodb
   replicas: 1
   selector:
     matchLabels:
-      app: mongodb
+      app: audits-mongodb
   template:
     metadata:
       labels:
-        app: mongodb
+        app: audits-mongodb
     spec:
       containers:
         - name: mongodb
@@ -21,15 +21,15 @@ spec:
             - containerPort: 27017
           envFrom:
             - secretRef:
-                name: mongodb-secret
+                name: audits-mongodb-secret
           volumeMounts:
-            - name: mongodb-persistent-storage
+            - name: audits-mongodb-persistent-storage
               mountPath: /data/db
       imagePullSecrets:
         - name: docker-registry-secret
   volumeClaimTemplates:
     - metadata:
-        name: mongodb-persistent-storage
+        name: audits-mongodb-persistent-storage
       spec:
         storageClassName: nfs-client
         accessModes: [ "ReadWriteMany" ]

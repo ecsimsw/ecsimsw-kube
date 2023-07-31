@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: mysql
-  namespace: mysql
+  name: products-mysql-sts
+  namespace: mymarket
 spec:
-  serviceName: mysql
+  serviceName: products-mysql
   replicas: 1
   selector:
     matchLabels:
-      app: mysql
+      app: products-mysql
   template:
     metadata:
       labels:
-        app: mysql
+        app: products-mysql
     spec:
       containers:
         - name: mysql
@@ -21,15 +21,15 @@ spec:
             - containerPort: 3306
           envFrom:
             - secretRef:
-                name: mysql-secret
+                name: products-mysql-secret
           volumeMounts:
-            - name: mysql-persistent-storage
+            - name: products-mysql-persistent-storage
               mountPath: /var/lib/mysql
       imagePullSecrets:
         - name: docker-registry-secret
   volumeClaimTemplates:
     - metadata:
-        name: mysql-persistent-storage
+        name: products-mysql-persistent-storage
       spec:
         storageClassName: nfs-client
         accessModes: [ "ReadWriteMany" ]
