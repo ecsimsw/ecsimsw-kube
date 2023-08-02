@@ -6,7 +6,7 @@ metadata:
 data:
   SPRING_PROFILES_ACTIVE: "prod"
   MYSQL_DATASOURCE_URL: "jdbc:mysql://${MYSQL_DB_HOST}:${MYSQL_DB_PORT}/${MYSQL_DB_NAME}?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul"
-  MYSQL_DB_HOST: "products-mysql-svc.mymarket.svc.cluster.local"
+  MYSQL_DB_HOST: "products-mysql-svc"
   MYSQL_DB_PORT: "3306"
   MYSQL_DB_NAME: "mymarket"
   KAFKA_HOST: "kafka-0.kafka-headless.mymarket.svc.cluster.local"
