@@ -5,7 +5,7 @@ metadata:
   namespace: mymarket
 data:
   SPRING_PROFILES_ACTIVE: "prod"
-  MYSQL_DATASOURCE_URL: "jdbc:mysql://${MYSQL_DB_HOST}:${MYSQL_DB_PORT}/${MYSQL_DB_NAME}?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul"
+  MYSQL_DATASOURCE_URL: "jdbc:mysql://10.102.85.129:${MYSQL_DB_PORT}/${MYSQL_DB_NAME}?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul"
   MYSQL_DB_USERNAME: "root"
   MYSQL_DB_HOST: "products-mysql-svc"
   MYSQL_DB_PORT: "3306"
