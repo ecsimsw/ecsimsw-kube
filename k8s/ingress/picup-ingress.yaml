@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ecsimsw-ingress
+  namespace: ecsimsw
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 500m
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /api/storage
+            pathType: Prefix
+            backend:
+              service:
+                name: storage-api
+                port:
+                  number: 30884
+          - path: /api/member
+            pathType: Prefix
+            backend:
+              service:
+                name: member-api
+                port:
+                  number: 30883

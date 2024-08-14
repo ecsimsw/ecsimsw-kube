@@ -1,0 +1,35 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:   # store sent log offset
+  filename: /tmp/positions.yaml
+
+clients:
+  - url: http://host.docker.internal:3100/loki/api/v1/push
+
+scrape_configs:
+  - job_name: ecsimsw-storage
+    static_configs:
+      - targets:
+          - ecsimsw-storage-application
+        labels:
+          job: application
+          __path__: /storage/logs/application/*.log
+      - targets:
+          - ecsimsw-storage-error
+        labels:
+          job: error
+          __path__: /storage/logs/error/*.log
+  - job_name: ecsimsw-member
+    static_configs:
+      - targets:
+          - ecsimsw-member-application
+        labels:
+          job: application
+          __path__: /member/logs/application/*.log
+      - targets:
+          - ecsimsw-member-error
+        labels:
+          job: error
+          __path__: /member/logs/error/*.log

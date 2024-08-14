@@ -1,0 +1,56 @@
+version: '3'
+services:
+  ecsimsw-grafana:
+    image: grafana/grafana:10.2.2
+    ports:
+      - 3000:3000
+    volumes:
+      - ~/dev/data/grafana:/var/lib/grafana
+    restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  ecsimsw-prometheus:
+    image: prom/prometheus:v2.48.0
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - ~/dev/data/prometheus:/prometheus
+    ports:
+      - 9090:9090
+    command:
+      - '--web.enable-lifecycle'
+      - '--config.file=/etc/prometheus/prometheus.yaml'
+    restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  ecsimsw-loki:
+    image: grafana/loki:2.9.2
+    volumes:
+      - ~/dev/data/loki:/loki
+    ports:
+      - "3100:3100"
+    command:
+      -config.file=/etc/loki/local-config.yaml
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  ecsimsw-promtail:
+    image: grafana/promtail:2.9.2
+    volumes:
+      - ./promtail/config.yaml:/etc/promtail/config.yaml
+      - ~/dev/data/ecsimsw/ecsimsw-member-pvc-pvc-4953b813-e832-42ee-ae8f-9176017572b8:/member/logs
+      - ~/dev/data/ecsimsw/ecsimsw-storage-pvc-pvc-f328990b-724d-41e3-bfd4-6c071ae70268:/storage/logs
+    command:
+      -config.file=/etc/promtail/config.yaml
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  nginx-log-exporter:
+    image: ghcr.io/martin-helmich/prometheus-nginxlog-exporter/exporter:v1.11-amd64
+    volumes:
+      - ~/dev/data/nginx:/var/log/nginx
+      - ./nginxlog-exporter/nginxlog-exporter.yaml:/config/nginxlog-exporter.yaml
+    command:
+      - -config-file
+      - /config/nginxlog-exporter.yaml
+    ports:
+      - "4040:4040"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

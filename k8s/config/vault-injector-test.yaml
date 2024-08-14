@@ -1,0 +1,51 @@
+## Vault kubernetes injector test configuration
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: vault-auth-secret
+  annotations:
+    kubernetes.io/service-account.name: vault
+type: kubernetes.io/service-account-token
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: vault-injector-test
+  name: vault-injector-test
+  namespace: ecsimsw
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vault-injector-test
+  template:
+    metadata:
+      annotations:
+        vault.hashicorp.com/role: internal-app
+        vault.hashicorp.com/agent-inject: "true"
+        # KEY : agent-inject-secret-FILEPATH prefixes the path of the file, /vault/secrets directory.
+        # VALUE : vault secret path
+        vault.hashicorp.com/agent-inject-secret-ecsimsw: ecsimsw/common
+        # DESC : template that what to write in
+        # SECRET : vault secret path
+        # .Data : map[created:20240516 version:1]
+        vault.hashicorp.com/agent-inject-template-ecsimsw: |
+            {{- with secret "ecsimsw/common" -}}
+            {{- range $k, $v := .Data }}
+            export {{ $k }}={{ $v }}
+            {{end}}{{end}}
+      labels:
+        app: vault-injector-test
+    spec:
+      containers:
+        - image: alpine
+          args:
+            - "sh"
+            - "-c"
+            - "source /vault/secrets/ecsimsw && sleep 10000"
+          imagePullPolicy: IfNotPresent
+          name: vault-injector-test
+          resources: {}
+      terminationGracePeriodSeconds: 30

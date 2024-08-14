@@ -1,0 +1,35 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: storage-batch
+  namespace: ecsimsw
+spec:
+  schedule: "0 0 * * *"       # At 0:00, every day
+  concurrencyPolicy: Forbid   # skip if job already exists
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          annotations:
+            vault.hashicorp.com/role: internal-app
+            vault.hashicorp.com/agent-inject: "true"
+            vault.hashicorp.com/agent-pre-populate-only : "true"  # disable sidecar
+            vault.hashicorp.com/agent-inject-secret-ecsimsw: ecsimsw/common
+            vault.hashicorp.com/agent-inject-template-ecsimsw: |
+              {{- with secret "ecsimsw/common" -}}
+              {{- range $k, $v := .Data }}
+              export {{ $k }}={{ $v }}
+              {{end}}{{end}}
+        spec:
+          containers:
+            - name: server-batch
+              image: ghcr.io/ecsimsw/ecsimsw/storage-batch:latest
+              imagePullPolicy: Always
+              volumeMounts:
+                - name: storage-data
+                  mountPath: /ext-data       # READ private_key.pem
+          restartPolicy: Never
+          volumes:
+            - name: storage-data
+              persistentVolumeClaim:
+                claimName: storage-pvc
